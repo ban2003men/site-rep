@@ -200,58 +200,41 @@ h1 {
     }
 }
 
-/* Медиазапрос для экранов до 480px */
-/* Медиазапрос для экранов до 480px */
+/* Медиа-запрос для экранов до 480px */
 @media (max-width: 480px) {
-    h1 {
-        font-size: 1.5em;
-        margin-bottom: 15px;
+    .header {
+        padding: 5px; /* Уменьшение отступов в шапке */
     }
 
-    .header {
-        padding: 5px 10px; /* Уменьшение внутреннего отступа */
+    .header-left,
+    .header-right {
+        flex-basis: auto;
+        flex-grow: 1; /* Растягивание блоков */
     }
 
     .header-left .icon,
     .header-right .icon {
-        font-size: 18px; /* Уменьшение размера иконок */
+        font-size: 20px; /* Уменьшение размера иконок */
         margin-left: 5px; /* Уменьшение отступа между иконками */
     }
 
     .logo {
-        height: 40px; /* Уменьшение логотипа */
-    }
-
-    .category-menu {
-        padding: 5px 0; /* Уменьшение внутреннего отступа */
+        height: 40px; /* Уменьшение размера логотипа */
+        width: auto; /* Сохранение пропорций */
     }
 
     .category-menu ul {
-        list-style: none;
-        display: flex; /* Сохраняем горизонтальное меню */
-        justify-content: space-between; /* Равномерное распределение элементов */
-        padding: 0;
-        overflow-x: auto; /* Добавление прокрутки при необходимости */
-        white-space: nowrap; /* Предотвращаем перенос строк */
+        flex-direction: row; /* Сохраняем горизонтальное меню */
+        overflow-x: auto; /* Добавление горизонтальной прокрутки при необходимости */
     }
 
     .category-menu ul li {
-        margin: 0 2px; /* Уменьшение отступов между пунктами меню */
+        margin: 0 5px; /* Уменьшение отступов между пунктами меню */
     }
 
     .category-menu ul li a {
-        color: #808080;
-        text-decoration: none;
-        padding: 8px 10px; /* Увеличение внутреннего отступа для кликабельности */
         font-size: 14px; /* Уменьшение размера текста */
-        border-radius: 4px;
-        text-align: center;
-        display: block;
-    }
-
-    .category-menu ul li a:hover {
-        background-color: #ff9900;
-        color: #ffff;
+        padding: 8px 5px; /* Уменьшение внутреннего отступа */
     }
 
     .container {
@@ -259,6 +242,7 @@ h1 {
         padding: 10px;
     }
 
+    /* Настройка карточек товаров */
     .items {
         display: flex;
         justify-content: space-between;
@@ -266,16 +250,16 @@ h1 {
     }
 
     .item-card {
-        width: 48%; /* Карточки занимают 48% ширины, чтобы вмещалось по 2 в строку */
-        padding: 10px;
+        width: 48%; /* Две карточки в строке */
         margin-bottom: 10px;
     }
 
     .item-card h3 {
-        font-size: 1em;
+        font-size: 1em; /* Уменьшение размера заголовка */
     }
 
     .item-card p {
-        font-size: 0.8em;
+        font-size: 0.8em; /* Уменьшение размера текста */
     }
 }
+
