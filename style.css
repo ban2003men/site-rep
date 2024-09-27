@@ -221,11 +221,11 @@ h1 {
         padding: 5px; /* Уменьшение отступов в шапке */
     }
 
-    .header-left,
+/*     .header-left,
     .header-right {
         flex-basis: auto;
-        flex-grow: 1; /* Растягивание блоков */
-    }
+        flex-grow: 1; /* Растягивание блоков 
+    } */
 
     .header-left .icon,
     .header-right .icon {
