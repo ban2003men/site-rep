@@ -265,3 +265,61 @@ h1 {
     font-size: 1em;
     color: #ffff;
 }
+
+
+
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 768px) {
+    .section h2 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+    
+    .items {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .item-card {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+    
+    .item-card h3 {
+        font-size: 1.1em;
+    }
+    
+    .item-card p {
+        font-size: 0.9em;
+    }
+}
+
+/* Медиазапрос для очень маленьких экранов */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    
+    .section h2 {
+        font-size: 1em;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .item-card {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .item-card h3 {
+        font-size: 1em;
+    }
+    
+    .item-card p {
+        font-size: 0.8em;
+    }
+}
