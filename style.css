@@ -65,7 +65,7 @@ background-color: #1a1a1a;
 }
 
 .category-menu ul li a {
-    color: white;
+    color: #808080;
     text-decoration: none;
     padding: 5px 10px;
     font-size: 14px;
@@ -77,7 +77,7 @@ background-color: #1a1a1a;
 
 .category-menu ul li a:hover {
     background-color: #ff9900;
-    color: #000;
+    color: #ffff;
 }
 
 
@@ -98,7 +98,7 @@ body {
     color: var(--tg-theme-text-color);
     background: var(--tg-theme-bg-color);
 }*/
- .container {
+/* .container {
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -122,7 +122,7 @@ h1 {
 
 .profile-card {
     background-color: #808080;
-/*    border: 1px solid #ddd;*/
+/*    border: 1px solid #ddd;
     border: 1px solid #ffa31a;
     border-radius: 8px;
     width: calc(25% - 20px);
@@ -196,4 +196,72 @@ p {
     margin: 15px;
     color: #d9534f;
     font-weight: bold;
+}*/
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.alcohol-sections {
+    display: flex;
+    flex-direction: column;
+}
+
+.section {
+/*    background-color: #808080;*/
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color:#808080;
+}
+.section h2:hover {
+    color:#ffff;
+}
+
+.items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.item-card {
+    background-color: #808080;
+    border-radius: 10px;
+    border: 1px solid #ffa31a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.item-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.item-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #ffa31a;
+}
+
+.item-card p {
+    font-size: 1em;
+    color: #ffff;
 }
