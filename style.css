@@ -8,8 +8,6 @@ body {
 
 .container {
 	max-width: 390px;
-	justify-content:center;
-	align-items:center;
 	
 }
 
@@ -17,6 +15,8 @@ body {
 	display: grid;
 	grid-template-columns: 2fr 2fr;
 	grid-template-rows: 200px 200px 200px;
+	justify-content:center;
+	align-items:center;
 }
 
 .img {
