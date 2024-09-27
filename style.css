@@ -1,265 +1,150 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perk'i Mobile Header</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="#" class="icon profile-icon">
+                <svg fill="none" width="2em" height="2em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="m22 12c0 5.5228-4.4772 10-10 10-5.52285 0-10-4.4772-10-10 0-5.52285 4.47715-10 10-10 5.5228 0 10 4.47715 10 10zm-4.2863 4.4006c.3279.3345.3279.8644-.0001 1.199-1.4519 1.4813-3.4754 2.4004-5.7135 2.4004-2.23824 0-4.26176-.9191-5.71374-2.4006-.32791-.3345-.3279-.8644.00001-1.199 1.45197-1.4813 3.47544-2.4004 5.71363-2.4004 2.2382 0 4.2617.9192 5.7137 2.4006zm-5.7137-4.4006c1.6569 0 3-1.3431 3-3 0-1.65685-1.3431-3-3-3s-3 1.34315-3 3c0 1.6569 1.3431 3 3 3z" fill="#808080" fill-rule="evenodd" style="fill: #808080;"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="header-center">
+            <a href="#"><img src="7.png" alt="Perk'i Logo" class="logo"></a>
+        </div>
+        <div class="header-right">
+            <p style="color:#ffa31a">23:00-8:00</p>
+        </div>
+    </header>
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: white;
-}
+    <!-- Горизонтальное меню под шапкой -->
+    <nav class="category-menu">
+        <ul>
+            <li><a href="#strong">КРЕПКОЕ</a></li>
+            <li><a href="#wine">ВИНО</a></li>
+            <li><a href="#sparkling">ИГРИСТОЕ</a></li>
+            <li><a href="#liqueurs">НАСТОЙКИ</a></li>
+        </ul>
+    </nav>
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1a1a1a;
-    padding: 10px 15px;
-}
-
-.menu-icon {
-    font-size: 24px;
-    color: #ff9900;
-    cursor: pointer;
-}
-
-.header-center {
-    text-align: center;
-}
-.header-left {
-    display: flex;
-    align-items: center;
-}
-.logo {
-    height: 50px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-}
-
-.icon {
-    color: white;
-    font-size: 24px;
-    margin-left: 15px;
-    text-decoration: none;
-}
-
-.category-menu {
-    background-color: #111;
-    padding: 10px;
-}
-
-.category-menu ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
-}
-
-.category-menu ul li {
-    margin: 0 5px;
-}
-
-.category-menu ul li a {
-    color: #808080;
-    text-decoration: none;
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 4px;
-    text-align: center;
-    display: block;
-}
-
-.category-menu ul li a:hover {
-    background-color: #ff9900;
-    color: #ffff;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.alcohol-sections {
-    display: flex;
-    flex-direction: column;
-}
-
-.section {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-}
-
-.section h2 {
-    text-align: center;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color:#808080;
-}
-.section h2:hover {
-    color:#ffff;
-}
-
-.items {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.item-card {
-    background-color: #808080;
-    border-radius: 10px;
-    border: 1px solid #ffa31a;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 22%;
-    margin-bottom: 20px;
-    padding: 10px;
-    text-align: center;
-}
-
-.item-card img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.item-card h3 {
-    font-size: 1.2em;
-    margin: 10px 0;
-    color: #ffa31a;
-}
-
-.item-card p {
-    font-size: 1em;
-    color: #ffff;
-}
-
-/* Медиазапрос для мобильных устройств */
-@media (max-width: 768px) {
-    .section h2 {
-        font-size: 2em;
-        margin-bottom: 15px;
-    }
+    <div class="container">
+        <div class="alcohol-sections">
+            <!-- Раздел: Крепкий алкоголь -->
+            <div class="section" id="strong">
+                <h2>Крепкий алкоголь</h2>
+                <div class="items">
+                    <div class="item-card">
+                        <img src="111.svg" alt="Водка">
+                        <h3>Виски</h3>
+                        <p style="color:white">от 1000 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Виски">
+                        <h3>Водка</h3>
+                        <p style="color:white">от 5000 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Бренди">
+                        <h3>Бренди</h3>
+                        <p style="color:white">от 3000 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Ром">
+                        <h3>Ром</h3>
+                        <p style="color:white">от 2500 ₽</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Раздел: Вино -->
+            <div class="section" id="wine">
+                <h2>Вино</h2>
+                <div class="items">
+                    <div class="item-card">
+                        <img src="111.svg" alt="Красное вино">
+                        <h3>Красное вино</h3>
+                        <p>Цена: 1500 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Красное вино">
+                        <h3>Белое вино</h3>
+                        <p>Цена: 1500 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Розовое вино">
+                        <h3>Розовое вино</h3>
+                        <p>Цена: 1400 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Десертное вино">
+                        <h3>Десертное вино</h3>
+                        <p>Цена: 1800 ₽</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Раздел: Игристое -->
+            <div class="section" id="sparkling">
+                <h2>Игристое</h2>
+                <div class="items">
+                    <div class="item-card">
+                        <img src="111.svg" alt="Шампанское">
+                        <h3>Шампанское</h3>
+                        <p>Цена: 3500 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Просекко">
+                        <h3>Просекко</h3>
+                        <p>Цена: 2000 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Кава">
+                        <h3>Кава</h3>
+                        <p>Цена: 2500 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Асти">
+                        <h3>Асти</h3>
+                        <p>Цена: 1800 ₽</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Раздел: Настойки -->
+            <div class="section" id="liqueurs">
+                <h2>Настойки</h2>
+                <div class="items">
+                    <div class="item-card">
+                        <img src="111.svg" alt="Бальзам">
+                        <h3>Бальзам</h3>
+                        <p>Цена: 2000 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Настойка">
+                        <h3>Настойка</h3>
+                        <p>Цена: 1200 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Биттер">
+                        <h3>Биттер</h3>
+                        <p>Цена: 1500 ₽</p>
+                    </div>
+                    <div class="item-card">
+                        <img src="111.svg" alt="Ликёр">
+                        <h3>Ликёр</h3>
+                        <p>Цена: 1800 ₽</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    .items {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-    
-    .item-card {
-        width: 45%;
-        margin-bottom: 15px;
-    }
-    
-    .item-card h3 {
-        font-size: 1.1em;
-    }
-    
-    .item-card p {
-        font-size: 0.9em;
-    }
-    
-    .header-right p {
-        font-size: 1.5em;
-    }
-    
-    .header-left a {
-        /* font-size:1.5em; */
-    }
-    
-    .logo {
-        height: 5em;
-        width: 11em;
-    }
-    
-    .icon profile-icon {
-        width: 4em;
-        height: 4em;
-    }
-    
-    .category-menu ul li a {
-        color: #808080;
-        text-decoration: none;
-        padding: 5px 10px;
-        font-size: 20px;
-        border-radius: 4px;
-        text-align: center;
-        display: block;
-    }
-}
+    <div class="usercard" id="usercard"></div>
 
-/* Медиа-запрос для экранов до 480px */
-@media (max-width: 480px) {
-    .header {
-        padding: 5px; /* Уменьшение отступов в шапке */
-    }
-
-    .header-left,
-    .header-right {
-        flex-basis: auto;
-        flex-grow: 1; /* Растягивание блоков */
-    }
-
-    .header-left .icon,
-    .header-right .icon {
-        font-size: 20px; /* Уменьшение размера иконок */
-        margin-left: 5px; /* Уменьшение отступа между иконками */
-    }
-
-    .logo {
-        height: 40px; /* Уменьшение размера логотипа */
-        width: auto; /* Сохранение пропорций */
-    }
-
-    .category-menu ul {
-        flex-direction: row; /* Сохраняем горизонтальное меню */
-        overflow-x: auto; /* Добавление горизонтальной прокрутки при необходимости */
-    }
-
-    .category-menu ul li {
-        margin: 0 5px; /* Уменьшение отступов между пунктами меню */
-    }
-
-    .category-menu ul li a {
-        font-size: 14px; /* Уменьшение размера текста */
-        padding: 8px 5px; /* Уменьшение внутреннего отступа */
-    }
-
-    .container {
-        width: 95%;
-        padding: 10px;
-    }
-
-    /* Настройка карточек товаров */
-    .items {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .item-card {
-        width: 48%; /* Две карточки в строке */
-        margin-bottom: 10px;
-    }
-
-    .item-card h3 {
-        font-size: 1em; /* Уменьшение размера заголовка */
-    }
-
-    .item-card p {
-        font-size: 0.8em; /* Уменьшение размера текста */
-    }
-}
-
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
