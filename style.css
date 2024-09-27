@@ -244,11 +244,11 @@ h1 {
         flex-grow: 1; /* Растягивание блоков 
     } */
 
-    .header-left .icon,
+/*     .header-left .icon,
     .header-right .icon {
-        font-size: 20px; /* Уменьшение размера иконок */
-        margin-left: 5px; /* Уменьшение отступа между иконками */
-    }
+        font-size: 20px; /* Уменьшение размера иконок 
+        margin-left: 5px; /* Уменьшение отступа между иконками 
+    } */
 /*     .header-right p {
         font-size: 1.2em; /* Увеличение размера шрифта для удобства чтения 
         margin: 0; /* Убираем отступы 
