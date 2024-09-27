@@ -23,7 +23,11 @@ body {
 .item {
 	text-align: center;
 }
-
+h1{
+  color: #ffee00;
+  font: 40px Georgia;
+  margin-left: 300px;  
+}
 .btn {
 	display: inline-block;
 	padding: 10px 20px;
