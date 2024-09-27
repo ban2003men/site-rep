@@ -144,13 +144,17 @@ h1 {
     font-size: 1em;
     color: #ffff;
 }
-.section:hover {
-    background-color: #ffa31a; /* Цвет фона при наведении */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Увеличение тени */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход */
+/*.section:hover {
+    background-color: #ffa31a; /* Цвет фона при наведении 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Увеличение тени 
+    transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход 
 }
 .section:hover h2 {
-    color: #ffff; /* Цвет заголовка при наведении на секцию */
+    color: #ffff; /* Цвет заголовка при наведении на секцию 
+}*/
+.section.active {
+    background-color: #ffa31a; /* Highlight color */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow */
 }
 /* Медиазапрос для мобильных устройств */
 @media (max-width: 768px) {
@@ -213,19 +217,32 @@ h1 {
 .section:hover h2 {
     color: #ffff; /* Цвет заголовка при наведении на секцию */
 }
+.section.active {
+    background-color: #ffa31a; /* Highlight color */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow */
+}
 }
 
 /* Медиа-запрос для экранов до 480px */
 @media (max-width: 480px) {
+  .section {
+        cursor: pointer; /* Change cursor to indicate it's clickable */
+        transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+    }
+
+    .section.active {
+        background-color: #ffa31a; /* Highlight color */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow */
+    }
     .header {
         padding: 5px; /* Уменьшение отступов в шапке */
     }
 
-/*     .header-left,
+    .header-left,
     .header-right {
         flex-basis: auto;
-        flex-grow: 1; /* Растягивание блоков 
-    } */
+        flex-grow: 1; /* Растягивание блоков */
+    }
 
     .header-left .icon,
     .header-right .icon {
