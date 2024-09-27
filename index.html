@@ -22,7 +22,34 @@
             <p style="color:#ffa31a">23:00-8:00</p>
         </div>
     </header>
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Профиль</h2>
+            <p>Логин: user123</p>
+            <p>Баланс: 5000 ₽</p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        // Открытие модального окна при клике на иконку профиля
+        document.querySelector('.header-left').addEventListener('click', function() {
+            document.getElementById('profile-modal').style.display = 'block';
+        });
 
+        // Закрытие модального окна при клике на кнопку закрытия
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.getElementById('profile-modal').style.display = 'none';
+        });
+
+        // Закрытие модального окна при клике вне его
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('profile-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
     <!-- Горизонтальное меню под шапкой -->
     <nav class="category-menu">
         <ul>
