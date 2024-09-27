@@ -14,7 +14,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000;
+/*    background-color: #000;*/
+background-color: #1a1a1a;
     padding: 10px 15px;
 }
 
@@ -65,7 +66,7 @@ body {
     text-decoration: none;
     padding: 5px 10px;
     font-size: 14px;
-    background-color: #000;
+/*    background-color: #000;*/
     border-radius: 4px;
     text-align: center;
     display: block;
@@ -86,15 +87,15 @@ body {
 
 
 
-
-<!-- body {
+/*
+body {
     margin: 0;
     padding: 0;
     font-size: 18px;
     color: var(--tg-theme-text-color);
     background: var(--tg-theme-bg-color);
 }
-
+*/
 .container {
     max-width: 390px;
     
@@ -102,7 +103,7 @@ body {
 
 .inner {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 200px 200px 200px;
 /*  justify-content:center;*/
     align-items:center;
@@ -110,13 +111,13 @@ body {
     justify-content:center;
     align-content:center;
 }
-header{
+/*header{
     grid-column: 1/-1;
     display: grid;
     grid-template-columns: repeat(2,2fr);
 /*  text-align: bottom;*/
-    border-bottom: 1px solid black;
-}
+/*    border-bottom: 1px solid black;*/
+/*}*/
 .left{
 /*  grid-column: 1/-1;*/
     grid-column:1 ;
