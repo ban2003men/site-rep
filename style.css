@@ -26,9 +26,17 @@ body {
 	justify-content:center;
 	align-content:center;
 }
-header{
-	grid-column: 1/-1;
-	text-align: center;
+.left{
+/*	grid-column: 1/-1;*/
+	grid-column:1 ;
+/*	text-align: center;*/
+text-align:left;
+}
+.right{
+/*		grid-column:2 ;*/
+/*	text-align: center;*/
+grid-column:2;
+text-align:right;
 }
 .img {
 	width: 150px;
@@ -40,12 +48,19 @@ header{
 .item.span{
 	display: block;
 }
+.span{
+	color: color: #ffa31a;;
+}
 h1{
-  color: #ffee00;
+  color: #ffa31a;
   font: 40px Georgia;
 	margin:0;
 /*   margin-left: 200px;   */
 	
+}
+h3{
+	color: #ffa31a;
+	margin:0;
 }
 .btn {
 	display: inline-block;
@@ -67,23 +82,6 @@ h1{
 .usercard {
 	text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
