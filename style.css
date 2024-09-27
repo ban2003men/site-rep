@@ -31,6 +31,8 @@ background-color: #1a1a1a;
 .header-left {
     display: flex;
     align-items: center;
+    /*height: 40px;
+    width:40px;*/
 }
 .logo {
     height: 50px;
@@ -271,17 +273,20 @@ h1 {
 /* Медиазапрос для мобильных устройств */
 @media (max-width: 768px) {
     .section h2 {
-        font-size: 1.2em;
+        font-size: 2em;
         margin-bottom: 15px;
     }
     
     .items {
-        flex-direction: column;
-        align-items: center;
+       /* flex-direction: column;
+        align-items: center;*/
+        display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     }
     
     .item-card {
-        width: 90%;
+        width: 45%;
         margin-bottom: 15px;
     }
     
@@ -292,6 +297,30 @@ h1 {
     .item-card p {
         font-size: 0.9em;
     }
+    .header-right p{
+        font-size: 1.5em;
+    }
+    .header-left a{
+/*        font-size:1.5em;*/
+    }
+    .logo{
+        height:5em;
+        width:11em;
+    }
+    .icon profile-icon{
+        width: 4em;
+        height: 4em;
+    }
+    .category-menu ul li a {
+    color: #808080;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 20px;
+/*    background-color: #000;*/
+    border-radius: 4px;
+    text-align: center;
+    display: block;
+}
 }
 
 /* Медиазапрос для очень маленьких экранов */
