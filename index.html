@@ -146,5 +146,27 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="app.js"></script>
+   <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+
+            sections.forEach(section => {
+                section.addEventListener('click', () => {
+                    // Remove active class from all sections
+                    sections.forEach(s => s.classList.remove('active'));
+                    // Add active class to the clicked section
+                    section.classList.add('active');
+                });
+            });
+
+            // Optional: Remove active class when tapping outside of sections
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.section')) {
+                    sections.forEach(section => section.classList.remove('active'));
+                }
+            });
+        });
+    </script>
+    
 </body>
 </html>
