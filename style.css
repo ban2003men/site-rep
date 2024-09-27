@@ -144,17 +144,44 @@ h1 {
     font-size: 1em;
     color: #ffff;
 }
-/*.section:hover {
-    background-color: #ffa31a; /* Цвет фона при наведении 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Увеличение тени 
-    transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход 
-}
-.section:hover h2 {
-    color: #ffff; /* Цвет заголовка при наведении на секцию 
-}*/
+
 .section.active {
     background-color: #ffa31a; /* Highlight color */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow */
+}
+.modal {
+    display: none; /* Модальное окно скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000; /* Поверх всего контента */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+}
+
+.modal-content {
+    background-color: #333; /* Цвет фона модального окна */
+    margin: 15% auto; /* Отступы и центрирование окна */
+    padding: 20px;
+    border: 1px solid #ffa31a;
+    width: 80%;
+    max-width: 400px; /* Ограничение ширины */
+    color: white; /* Цвет текста */
+    border-radius: 10px; /* Закругленные углы */
+}
+
+.close-btn {
+    color: #ffa31a; /* Цвет кнопки закрытия */
+    float: right; /* Позиционирование справа */
+    font-size: 24px; /* Размер шрифта */
+    font-weight: bold;
+    cursor: pointer; /* Указатель курсора при наведении */
+}
+
+.close-btn:hover {
+    color: white; /* Изменение цвета при наведении */
 }
 /* Медиазапрос для мобильных устройств */
 @media (max-width: 768px) {
@@ -222,7 +249,40 @@ h1 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow */
 }
 }
+.modal {
+    display: none; /* Модальное окно скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000; /* Поверх всего контента */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+}
 
+.modal-content {
+    background-color: #333; /* Цвет фона модального окна */
+    margin: 15% auto; /* Отступы и центрирование окна */
+    padding: 20px;
+    border: 1px solid #ffa31a;
+    width: 80%;
+    max-width: 400px; /* Ограничение ширины */
+    color: white; /* Цвет текста */
+    border-radius: 10px; /* Закругленные углы */
+}
+
+.close-btn {
+    color: #ffa31a; /* Цвет кнопки закрытия */
+    float: right; /* Позиционирование справа */
+    font-size: 24px; /* Размер шрифта */
+    font-weight: bold;
+    cursor: pointer; /* Указатель курсора при наведении */
+}
+
+.close-btn:hover {
+    color: white; /* Изменение цвета при наведении */
+}
 /* Медиа-запрос для экранов до 480px */
 @media (max-width: 480px) {
   .section {
@@ -257,7 +317,7 @@ h1 {
     } */
     .logo {
         height: 40px; /* Уменьшение размера логотипа */
-        width: 11em; /* Сохранение пропорций */
+        width: 8em; /* Сохранение пропорций */
     }
 
     .category-menu ul {
@@ -306,5 +366,38 @@ h1 {
 .section:hover h2 {
     color: #ffff; /* Цвет заголовка при наведении на секцию */
 }
+.modal {
+    display: none; /* Модальное окно скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000; /* Поверх всего контента */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
 }
 
+.modal-content {
+    background-color: #333; /* Цвет фона модального окна */
+    margin: 15% auto; /* Отступы и центрирование окна */
+    padding: 20px;
+    border: 1px solid #ffa31a;
+    width: 80%;
+    max-width: 400px; /* Ограничение ширины */
+    color: white; /* Цвет текста */
+    border-radius: 10px; /* Закругленные углы */
+}
+
+.close-btn {
+    color: #ffa31a; /* Цвет кнопки закрытия */
+    float: right; /* Позиционирование справа */
+    font-size: 24px; /* Размер шрифта */
+    font-weight: bold;
+    cursor: pointer; /* Указатель курсора при наведении */
+}
+
+.close-btn:hover {
+    color: white; /* Изменение цвета при наведении */
+}
+}
