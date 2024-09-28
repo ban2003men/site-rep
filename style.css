@@ -1133,8 +1133,8 @@ font-size: 1.3em;
     }
     */
     .logo {
-        height: 5em;
-        width: 11em;
+        height: 40pxm;
+        width: 8em;
     }
     
     .icon profile-icon {
@@ -1146,7 +1146,7 @@ font-size: 1.3em;
         color: #808080;
         text-decoration: none;
         padding: 5px 10px;
-        font-size: 20px;
+        font-size: 14px;
         border-radius: 4px;
         text-align: center;
         display: block;
