@@ -624,26 +624,31 @@ h1 {
 }
 /* Медиа-запрос для экранов до 480px */
 @media (max-width: 480px) {
-    .item-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+   .item-controls {
+    position: absolute;
+    bottom: 10px; /* Позиционирование внизу карточки */
+    left: 10px; /* Слева */
+    width: 100%; /* Дополнительно */
 }
 
-.decrease-qty, .increase-qty {
-    background-color: #ffa31a;
+.decrease-qty {
+    background-color: #ff3333;
+    color: #fff;
     border: none;
-    color: #333;
+    border-radius: 12px;
     padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
     font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.decrease-qty:hover, .increase-qty:hover {
-    background-color: #ffcc66;
+.decrease-qty:hover {
+    background-color: #ff6666;
 }
+
+
 
 .item-quantity {
     margin: 0 10px;
@@ -691,74 +696,70 @@ h1 {
 
 
 */
-    .item-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.decrease-qty {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #ff9900;
-    color: #fff;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    font-weight: bold;
-    display: none; /* Скрыто по умолчанию */
-}
-
-.decrease-qty:hover, .increase-qty:hover, .add-to-cart:hover {
-    background-color: #ffcc66;
-}
-
-.quantity {
-    font-size: 16px;
-    color: #ffffff;
-    width: 30px;
+    /* Стиль для кнопки View Order */
+.view-order {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
-.cart {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    width: 300px;
-    background-color: #333;
-    border: 1px solid #ffa31a;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    color: white;
+.view-order-button {
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
 }
 
-.cart h2 {
+.view-order-button:hover {
+    background-color: #ffcc66;
+}
+
+/* Стиль для корзины внизу */
+.order-summary {
+    display: none; /* Скрыта по умолчанию */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    border-top: 2px solid #ffa31a;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Поверх всех элементов */
+}
+
+.order-summary h2 {
     text-align: center;
     margin-bottom: 15px;
     color: #ffa31a;
 }
 
-.cart ul {
+.order-summary ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    max-height: 200px; /* Ограничение по высоте */
+    overflow-y: auto; /* Скролл при переполнении */
 }
 
-.cart ul li {
+.order-summary ul li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.cart ul li button {
+.order-summary ul li button {
     background-color: #ffa31a;
     border: none;
     color: #333;
@@ -767,7 +768,7 @@ h1 {
     border-radius: 5px;
 }
 
-.cart ul li button:hover {
+.order-summary ul li button:hover {
     background-color: #ffcc66;
 }
 
@@ -775,7 +776,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .checkout-button {
@@ -783,10 +784,10 @@ h1 {
     background-color: #ffa31a;
     border: none;
     color: #333;
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -794,62 +795,56 @@ h1 {
     background-color: #ffcc66;
 }
 
-  .section {
-        cursor: pointer; /* Change cursor to indicate it's clickable */
-        transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+    .section h2 {
+        font-size: 2em;
+        margin-bottom: 15px;
     }
-
-    .section.active {
-        background-color: #ffa31a; /* Highlight color */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow */
-    }
-    .header {
-        padding: 5px; /* Уменьшение отступов в шапке */
-    }
-
-
-    .logo {
-        height: 40px; /* Уменьшение размера логотипа */
-        width: 8em; /* Сохранение пропорций */
-    }
-
-    .category-menu ul {
-        flex-direction: row; /* Сохраняем горизонтальное меню */
-        overflow-x: auto; /* Добавление горизонтальной прокрутки при необходимости */
-    }
-
-    .category-menu ul li {
-        margin: 0 5px; /* Уменьшение отступов между пунктами меню */
-    }
-
-    .category-menu ul li a {
-        font-size: 14px; /* Уменьшение размера текста */
-        padding: 8px 5px; /* Уменьшение внутреннего отступа */
-    }
-
-    .container {
-        width: 95%;
-        padding: 10px;
-    }
-
-    /* Настройка карточек товаров */
+    
     .items {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         flex-wrap: wrap;
     }
-
+    
     .item-card {
-        width: 48%; /* Две карточки в строке */
-        margin-bottom: 10px;
+        width: 45%;
+        margin-bottom: 15px;
     }
-
+    
     .item-card h3 {
-        font-size: 1em; /* Уменьшение размера заголовка */
+        font-size: 1.1em;
     }
-
+    
     .item-card p {
-        font-size: 0.8em; /* Уменьшение размера текста */
+        font-size: 0.9em;
+    }
+    
+    .header-right p {
+        font-size: 1.5em;
+    }
+    
+    .header-left a {
+        /* font-size:1.5em; */
+    }
+    
+    .logo {
+        height: 5em;
+        width: 11em;
+    }
+    
+    .icon profile-icon {
+        width: 4em;
+        height: 4em;
+    }
+    
+    .category-menu ul li a {
+        color: #808080;
+        text-decoration: none;
+        padding: 5px 10px;
+        font-size: 20px;
+        border-radius: 4px;
+        text-align: center;
+        display: block;
     }
     .section:hover {
     background-color: #ffa31a; /* Цвет фона при наведении */
@@ -858,6 +853,11 @@ h1 {
 }
 .section:hover h2 {
     color: #ffff; /* Цвет заголовка при наведении на секцию */
+}
+.section.active {
+    background-color: #ffa31a; /* Highlight color */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow */
+}
 }
 .modal {
     display: none; /* Модальное окно скрыто по умолчанию */
