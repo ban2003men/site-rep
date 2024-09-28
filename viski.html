@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Виски</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -49,11 +50,24 @@
         <div class="items">
             <div class="item-card">
                 <img src="111.svg" alt="Виски Бренд 1">
-                <h3>Виски Бренд 1</h3>
-                <p>Цена: 3000 ₽</p>
+                <div class="INFO">
+                <h3>Jack Daniels</h3>
+                <p>3000 ₽</p>
+                </div>
                 <div class="item-quantity-badge">0</div>
-                <div class="item-controls">
-                    <button class="decrease-qty" style="display: none;">-</button> <!-- Скрыто по умолчанию -->
+                <div class="item-controls" style="display: none;">
+                    <button class="decrease-qty" >убрать</button> <!-- Скрыто по умолчанию -->
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="111.svg" alt="Виски Бренд 1">
+                <div class="INFO">
+                <h3>Balantise</h3>
+                <p>3000 ₽</p>
+                </div>
+                <div class="item-quantity-badge">0</div>
+                <div class="item-controls" style="display: none;">
+                    <button class="decrease-qty" >убрать</button> <!-- Скрыто по умолчанию -->
                 </div>
             </div>
             <!-- Добавьте остальные карточки аналогично -->
@@ -62,7 +76,7 @@
 
     <!-- Кнопка View Order -->
     <div class="view-order">
-        <button id="view-order-button" class="view-order-button">View Order</button>
+        <button id="view-order-button" class="view-order-button">Корзина</button>
     </div>
 
     <!-- Корзина внизу -->
@@ -74,6 +88,51 @@
         </div>
         <button id="checkout-button" class="checkout-button">Оформить заказ</button>
     </div>
+
+
+
+
+
+<!-- Модальное окно уведомления об ошибке -->
+<div id="error-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-error-modal">&times;</span>
+        <h2>Ошибка</h2>
+        <p id="error-message">Пожалуйста, заполните все обязательные поля.</p>
+    </div>
+</div>
+
+<div id="thank-you-message" style="display: none; background-color: #28a745; color: white; padding: 15px; position: fixed; top: 20px; right: 20px; border-radius: 5px;">
+    Спасибо за покупку!
+</div>
+
+
+
+
+<!-- Модальное окно для ввода адреса -->
+<div id="address-modal2" class="modal2">
+    <div class="modal-content2">
+        <span class="close-btn2" id="close-address-modal2">&times;</span>
+        <h2>Укажите адрес доставки</h2>
+        <form id="address-form2">
+    <!-- Поле Улица -->
+    <input type="text" id="street" name="street" placeholder="Улица">
+
+    <!-- Сетка 2x2 для подъезда, квартиры, этажа и домофона -->
+    <div id="matrix-container">
+        <input type="text" id="entrance" name="entrance" placeholder="Подъезд">
+        <input type="text" id="apartment" name="apartment" placeholder="Квартира">
+        <input type="text" id="floor" name="floor" placeholder="Этаж">
+        <input type="text" id="intercom" name="intercom" placeholder="Домофон">
+    </div>
+
+    <!-- Поле Комментарий на всю ширину -->
+    <textarea id="comment" name="comment" rows="4" placeholder="Комментарий"></textarea>
+<button type="submit2">Подтвердить</button>
+</form>
+    </div>
+</div>
+
 
     <script>
         // Открытие модального окна при клике на иконку профиля
@@ -93,9 +152,111 @@
                 modal.style.display = 'none';
             }
         });
-    </script>
 
-    <script type="text/javascript">
+// Открытие модального окна для ввода адреса
+document.getElementById('checkout-button').addEventListener('click', function() {
+    document.getElementById('address-modal2').style.display = 'block';
+});
+
+// Закрытие модального окна
+document.getElementById('close-address-modal2').addEventListener('click', function() {
+    document.getElementById('address-modal2').style.display = 'none';
+});
+
+
+
+
+
+
+
+
+
+
+// Флаг для отслеживания состояния кнопки
+    let isOrderPlaced = false;
+
+    // Обработка формы адреса
+    document.getElementById('address-form2').addEventListener('submit', function(event) {
+        event.preventDefault();
+//Получаем значения полей
+    const street = document.getElementById('street').value.trim();
+    const entrance = document.getElementById('entrance').value.trim();
+    const apartment = document.getElementById('apartment').value.trim();
+    const floor = document.getElementById('floor').value.trim();
+
+        if (!street || !entrance || !apartment || !floor) {
+        // Показать модальное окно ошибки
+        document.getElementById('error-message').textContent = 'Пожалуйста, заполните все обязательные поля: Улица, Подъезд, Квартира, Этаж.';
+        document.getElementById('error-modal').style.display = 'block';
+        return; // Останавливаем дальнейшее выполнение, если есть пустые поля
+    }
+
+        // Проверка на пустые поля (сделано через required в форме)
+        // Если какие-то поля не заполнены, форма не будет отправлена
+
+        // Получаем остальные данные
+        const intercom = document.getElementById('intercom').value.trim();
+        const comment = document.getElementById('comment').value.trim();
+
+        // Формируем адрес для вывода
+        const deliveryAddress = `Улица: ${street}, Подъезд: ${entrance}, Этаж: ${floor}, Квартира: ${apartment}, Домофон: ${intercom}, Комментарий: ${comment}`;
+
+        // Закрываем окно ввода адреса
+        document.getElementById('address-modal2').style.display = 'none';
+
+        // Открываем корзину с товарами и адресом
+        document.getElementById('view-order-button').click();
+
+        // Выводим адрес в корзину
+        const cartItemsElement = document.getElementById('cart-items');
+        const addressElement = document.createElement('li');
+        addressElement.textContent = `Адрес доставки: ${deliveryAddress}`;
+        cartItemsElement.appendChild(addressElement);
+
+        // Очищаем форму после успешной отправки
+        document.getElementById('address-form2').reset(); // Сброс всех полей формы
+
+        // Меняем текст кнопки
+        document.getElementById('checkout-button').textContent = 'Оплатить';
+        isOrderPlaced = true; // Устанавливаем флаг оформления заказа
+    });
+
+    document.getElementById('checkout-button').addEventListener('click', function() {
+        if (isOrderPlaced) {
+            document.getElementById('cart-items').innerHTML = '';
+            document.getElementById('address-modal2').style.display = 'none';
+            // Сохранить состояние успешной покупки
+        localStorage.setItem('orderSuccess', 'true');
+        window.location.href = 'viski.html';
+            // Сброс состояния
+            isOrderPlaced = false;
+            this.textContent = 'Оформить заказ';
+            // Скрыть уведомление через 3 секунды
+            // Показать уведомление о покупке
+        }
+
+    });
+
+document.getElementById('cart-items').innerHTML = '';
+// Закрытие модального окна ошибки
+document.querySelector('.close-error-modal').addEventListener('click', function() {
+    document.getElementById('error-modal').style.display = 'none';
+});
+
+document.getElementById('address-modal2').style.display = 'none';
+
+
+
+
+
+
+
+
+
+
+
+
+
         document.addEventListener('DOMContentLoaded', function () {
             const cart = [];
             const cartItemsElement = document.getElementById('cart-items');
@@ -143,7 +304,7 @@
                         }
 
                         // Убедимся, что кнопка уменьшения также обновляется
-                        const decreaseButton = card.querySelector('.decrease-qty');
+                        const decreaseButton = card.querySelector('.item-controls');
                         decreaseButton.style.display = quantity > 0 ? 'flex' : 'none'; // Показываем или скрываем кнопку
                     }
                 });
@@ -180,7 +341,7 @@
                     updateBadge(itemName);
                 });
 
-                card.querySelector('.decrease-qty').addEventListener('click', function (event) {
+                card.querySelector('.item-controls').addEventListener('click', function (event) {
                     event.stopPropagation(); // Остановить событие клика на карточке
                     const itemName = card.querySelector('h3').textContent;
                     decreaseQuantity(itemName);
@@ -206,8 +367,51 @@
             });
 
         });
+
+
+
+
     </script>
     
+
+
+
+
+
+
+
+
+<!-- <script type="text/javascript">
+    // Предотвращаем действия копирования
+document.addEventListener('copy', function(event) {
+    event.preventDefault(); // Отменяем действие копирования
+});
+
+// Предотвращаем выделение текста при попытке выделения с помощью мыши
+document.addEventListener('mousedown', function(event) {
+    event.preventDefault(); // Отменяем действие выделения
+});
+
+</script> -->
+ <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+    // Проверка на успешную покупку
+    if (localStorage.getItem('orderSuccess')) {
+        const thankYouMessage = document.getElementById('thank-you-message');
+        thankYouMessage.style.display = 'block';
+
+        // Скрыть уведомление через 3 секунды
+        setTimeout(function() {
+            thankYouMessage.style.display = 'none';
+            // Удаляем сообщение из localStorage после отображения
+            localStorage.removeItem('orderSuccess');
+        }, 3000); // 3000 миллисекунд = 3 секунды
+    }
+});</script>
+
+
+
+
     <footer>
         <!-- <p>© 2024 Все права защищены.</p> -->
     </footer>
