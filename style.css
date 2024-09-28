@@ -83,7 +83,9 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-
+.item-card a{
+    text-decoration: none;
+}
 h1 {
     text-align: center;
     font-size: 2em;
@@ -108,9 +110,6 @@ h1 {
     margin-bottom: 10px;
     color:#808080;
 }
-/*.section h2:hover {
-    color:#ffff;
-}*/
 
 .items {
     display: flex;
@@ -127,6 +126,12 @@ h1 {
     margin-bottom: 20px;
     padding: 10px;
     text-align: center;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    border: 4px solid #ffa31a; /* Цвет границы при наведении */
+    box-shadow: 0 0 10px rgba(255, 163, 26, 0.5); /* Эффект тени */
 }
 
 .item-card img {
@@ -183,8 +188,342 @@ h1 {
 .close-btn:hover {
     color: white; /* Изменение цвета при наведении */
 }
+/* Стиль для кнопки View Order */
+.view-order {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.view-order-button {
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.view-order-button:hover {
+    background-color: #ffcc66;
+}
+
+/* Стиль для корзины внизу */
+.order-summary {
+    display: none; /* Скрыта по умолчанию */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    border-top: 2px solid #ffa31a;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Поверх всех элементов */
+}
+
+.order-summary h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ffa31a;
+}
+
+.order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px; /* Ограничение по высоте */
+    overflow-y: auto; /* Скролл при переполнении */
+}
+
+.order-summary ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.order-summary ul li button {
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.order-summary ul li button:hover {
+    background-color: #ffcc66;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.checkout-button {
+    width: 100%;
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkout-button:hover {
+    background-color: #ffcc66;
+}
+
+/* Стиль для бейджа с количеством товаров */
+.item-quantity-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff9900;
+    color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    display: none; /* Скрыто по умолчанию */
+}
+
+/* Дополнительный стиль для карточек */
+.item-card {
+    position: relative; /* Относительное позиционирование для бейджа */
+    background-color: #808080;
+    border-radius: 10px;
+    border: 1px solid #ffa31a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer; /* Указатель как рука при наведении */
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    border: 4px solid #ffa31a; /* Цвет границы при наведении */
+    box-shadow: 0 0 10px rgba(255, 163, 26, 0.5); /* Эффект тени */
+}
+.item-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.decrease-qty, .increase-qty {
+  /*  background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;*/
+}
+
+.decrease-qty:hover, .increase-qty:hover {
+/*    background-color: #ffcc66;*/
+}
+
+.item-quantity {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
 /* Медиазапрос для мобильных устройств */
 @media (max-width: 768px) {
+  .item-controls {
+    position: absolute;
+    bottom: 10px; /* Позиционирование внизу карточки */
+    left: 10px; /* Слева */
+    width: 100%; /* Дополнительно */
+}
+
+.decrease-qty {
+    background-color: #ff3333;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decrease-qty:hover {
+    background-color: #ff6666;
+}
+
+
+
+.item-quantity {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+    /* Стиль для бейджа с количеством товаров */
+.item-quantity-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff9900;
+    color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    display: none; /* Скрыто по умолчанию */
+}
+
+/* Дополнительный стиль для карточек */
+.item-card {
+    position: relative; /* Относительное позиционирование для бейджа */
+    background-color: #808080;
+    border-radius: 10px;
+    border: 1px solid #ffa31a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer; /* Указатель как рука при наведении */
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    border: 4px solid #ffa31a; /* Цвет границы при наведении */
+    box-shadow: 0 0 10px rgba(255, 163, 26, 0.5); /* Эффект тени */
+}
+
+
+*/
+    /* Стиль для кнопки View Order */
+.view-order {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.view-order-button {
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.view-order-button:hover {
+    background-color: #ffcc66;
+}
+
+/* Стиль для корзины внизу */
+.order-summary {
+    display: none; /* Скрыта по умолчанию */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    border-top: 2px solid #ffa31a;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Поверх всех элементов */
+}
+
+.order-summary h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ffa31a;
+}
+
+.order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px; /* Ограничение по высоте */
+    overflow-y: auto; /* Скролл при переполнении */
+}
+
+.order-summary ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.order-summary ul li button {
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.order-summary ul li button:hover {
+    background-color: #ffcc66;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.checkout-button {
+    width: 100%;
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkout-button:hover {
+    background-color: #ffcc66;
+}
+
     .section h2 {
         font-size: 2em;
         margin-bottom: 15px;
@@ -285,6 +624,176 @@ h1 {
 }
 /* Медиа-запрос для экранов до 480px */
 @media (max-width: 480px) {
+    .item-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.decrease-qty, .increase-qty {
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.decrease-qty:hover, .increase-qty:hover {
+    background-color: #ffcc66;
+}
+
+.item-quantity {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+    /* Стиль для бейджа с количеством товаров */
+.item-quantity-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff9900;
+    color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    display: none; /* Скрыто по умолчанию */
+}
+
+/* Дополнительный стиль для карточек */
+.item-card {
+    position: relative; /* Относительное позиционирование для бейджа */
+    background-color: #808080;
+    border-radius: 10px;
+    border: 1px solid #ffa31a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer; /* Указатель как рука при наведении */
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    border: 4px solid #ffa31a; /* Цвет границы при наведении */
+    box-shadow: 0 0 10px rgba(255, 163, 26, 0.5); /* Эффект тени */
+}
+
+
+*/
+    .item-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.decrease-qty {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff9900;
+    color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    display: none; /* Скрыто по умолчанию */
+}
+
+.decrease-qty:hover, .increase-qty:hover, .add-to-cart:hover {
+    background-color: #ffcc66;
+}
+
+.quantity {
+    font-size: 16px;
+    color: #ffffff;
+    width: 30px;
+    text-align: center;
+}
+
+.cart {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 300px;
+    background-color: #333;
+    border: 1px solid #ffa31a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    color: white;
+}
+
+.cart h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ffa31a;
+}
+
+.cart ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart ul li button {
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cart ul li button:hover {
+    background-color: #ffcc66;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.checkout-button {
+    width: 100%;
+    background-color: #ffa31a;
+    border: none;
+    color: #333;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.checkout-button:hover {
+    background-color: #ffcc66;
+}
+
   .section {
         cursor: pointer; /* Change cursor to indicate it's clickable */
         transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
@@ -298,23 +807,7 @@ h1 {
         padding: 5px; /* Уменьшение отступов в шапке */
     }
 
-/*     .header-left,
-    .header-right {
-        flex-basis: auto;
-        flex-grow: 1; /* Растягивание блоков 
-    } */
 
-/*     .header-left .icon,
-    .header-right .icon {
-        font-size: 20px; /* Уменьшение размера иконок 
-        margin-left: 5px; /* Уменьшение отступа между иконками 
-    } */
-/*     .header-right p {
-        font-size: 1.2em; /* Увеличение размера шрифта для удобства чтения 
-        margin: 0; /* Убираем отступы 
-        text-align: center; /* Центрирование текста 
-        color: #ffa31a; /* Цвет текста 
-    } */
     .logo {
         height: 40px; /* Уменьшение размера логотипа */
         width: 8em; /* Сохранение пропорций */
