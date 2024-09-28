@@ -810,392 +810,133 @@ font-size: 1.3em;
 }
 /* Медиа-запрос для экранов до 480px */
 @media (max-width: 480px) {
-        .close-error-modal {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+    .close-error-modal {
+        color: white;
+        float: right;
+        font-size: 24px; /* Уменьшение размера */
+        font-weight: bold;
+    }
+    
     .close-error-modal:hover,
-.close-error-modal:focus {
-    color: white;
-    cursor: pointer;
-}
+    .close-error-modal:focus {
+        color: white;
+        cursor: pointer;
+    }
+    
     /* Стиль для модального окна */
-.modal2 {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content2 {
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 8px;
-   font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-}
-
-
-
-
-
-
-#address-form2 button {
-    padding: 10px 20px;
-    background-color: #ffa31a;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    font-size:1em;
-}
-
-#address-form2 {
-    display: grid;
-    grid-template-columns: 1fr; /* Одноколоночный макет для начальной части */
-    gap: 20px; /* Расстояние между элементами */
-}
-
-#address-form2 input, #address-form2 textarea {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    background-color: transparent;
-    font-size: 1em;
-    height: 40px;
-    box-shadow: none;
-    color:white;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-}
-
-#address-form2 input:focus, #address-form2 textarea:focus {
-    outline: none;
-    border-bottom: 1px solid #ffa31a;
-}
-
-/* Поле "Улица" на всю ширину */
-#street {
-    grid-column: 1 / -1; /* Растягиваем на всю ширину */
-    width: 100%;
-}
-
-/* Сетка 2x2 для остальных полей */
-#matrix-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Две колонки */
-    grid-gap: 20px; /* Расстояние между колонками */
-}
-
-/* Комментарий на всю ширину */
-#comment {
-    grid-column: 1 / -1; /* На всю ширину экрана */
-    width: 100%;
-}
-
-
-
-
-
-  .item-controls {
-    background-color: #ffa31a; /* The entire bottom section is red */
-    height: 40px; /* Adjust this height as needed */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.decrease-qty {
-    background-color: #ffa31a;
-    color: white;
-    border: none;
-    font-size: 1.1em;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-
-}
-.INFO{
-    text-align: center;
-    height: 90px;
-}
-.INFO p{
-/*    text-align: center;*/
-    font-size: 1.3em;
-    font-family: Arial, sans-serif;
-    color: #1a1a1a;
-    font-weight: bold;
-}
-.INFO h3{
-font-size: 1.3em;
-    font-family: Arial, sans-serif;
-    color: #1a1a1a;
-    font-weight: bold;
-}
-/*.decrease-qty:hover {
-    background-color: #ff6666;
-}*/
-
-
-
-.item-quantity {
-    margin: 0 10px;
-    font-size: 16px;
-    color: #ffffff;
-}
-
-    /* Стиль для бейджа с количеством товаров */
-.item-quantity-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #ff9900;
-    color: #fff;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    font-weight: bold;
-    display: none; /* Скрыто по умолчанию */
-}
-
-/* Дополнительный стиль для карточек */
-.item-card {
-    position: relative; /* Относительное позиционирование для бейджа */
-    background-color: #808080;
-    border-radius: 10px;
-    border: 1px solid #ffa31a;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 22%;
-    margin-bottom: 20px;
-    padding: 10px;
-    overflow: hidden;
-    text-align: center;
-    cursor: pointer; /* Указатель как рука при наведении */
-}
-
-.item-card:hover {
-    transform: translateY(-5px);
-    border: 4px solid #ffa31a; /* Цвет границы при наведении */
-    box-shadow: 0 0 10px rgba(255, 163, 26, 0.5); /* Эффект тени */
-}
-
-
-*/
-    /* Стиль для кнопки View Order */
-.view-order {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    background-color: #333;
-    padding: 10px 0;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-.view-order-button {
-    background-color: #ffa31a;
-    border: none;
-    color: #333;
-    padding: 15px 30px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
-    color: #1a1a1a;
-    font-weight: bold;
-}
-
-.view-order-button:hover {
-    background-color: #ffcc66;
-}
-
-/* Стиль для корзины внизу */
-.order-summary {
-    display: none; /* Скрыта по умолчанию */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    border-top: 2px solid #ffa31a;
-    padding: 20px;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1000; /* Поверх всех элементов */
-}
-
-.order-summary h2 {
-    text-align: center;
-    margin-bottom: 15px;
-    color: #ffa31a;
-}
-
-.order-summary ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    max-height: 200px; /* Ограничение по высоте */
-    overflow-y: auto; /* Скролл при переполнении */
-}
-
-.order-summary ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.order-summary ul li button {
-    background-color: #ffa31a;
-    border: none;
-    color: #333;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.order-summary ul li button:hover {
-    background-color: #ffcc66;
-}
-
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-    font-size: 18px;
-}
-
-.checkout-button {
-    width: 100%;
-    background-color: #ffa31a;
-    border: none;
-    color: #333;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.checkout-button:hover {
-    background-color: #ffcc66;
-}
-
-    .section h2 {
-        font-size: 2em;
-        margin-bottom: 15px;
+    .modal2 {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
     }
-    
-    .items {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
+
+    .modal-content2 {
+        margin: 10% auto; /* Меньший отступ сверху */
+        padding: 15px; /* Меньшее значение отступа */
+        border: 1px solid #888;
+        width: 90%; /* Ширина модального окна больше */
+        max-width: 350px; /* Уменьшение максимальной ширины */
+        border-radius: 8px;
+        font-family: Arial, sans-serif;
+        background-color: #1a1a1a;
+        color: white; /* Цвет текста */
     }
-    
-    .item-card {
-        width: 45%;
-        margin-bottom: 15px;
-    }
-    
-    /*.item-card h3 {
-        font-size: 1.1em;
-    }
-    
-    .item-card p {
-        font-size: 0.9em;
-    }
-    
-    .header-right p {
-        font-size: 1.5em;
-    }
-    
-    .header-left a {
-        /* font-size:1.5em; 
-    }
-    */
-    .logo {
-        height: 40pxm;
-        width: 8em;
-    }
-    
-    .icon profile-icon {
-        width: 4em;
-        height: 4em;
-    }
-    
-    .category-menu ul li a {
-        color: #808080;
-        text-decoration: none;
-        padding: 5px 10px;
-        font-size: 14px;
+
+    #address-form2 button {
+        padding: 8px 15px; /* Уменьшение отступов кнопки */
+        background-color: #ffa31a;
+        border: none;
         border-radius: 4px;
-        text-align: center;
-        display: block;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        font-size: 1em;
+        width: 100%; /* Кнопка на всю ширину */
     }
-    .section:hover {
-    background-color: #ffa31a; /* Цвет фона при наведении */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Увеличение тени */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход */
-}
-.section:hover h2 {
-    color: #ffff; /* Цвет заголовка при наведении на секцию */
-}
-.section.active {
-    background-color: #ffa31a; /* Highlight color */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow */
-}
-}
-.modal {
-    display: none; /* Модальное окно скрыто по умолчанию */
-    position: fixed;
-    z-index: 1000; /* Поверх всего контента */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
-}
 
-.modal-content {
-    background-color: #333; /* Цвет фона модального окна */
-    margin: 15% auto; /* Отступы и центрирование окна */
-    padding: 20px;
-    border: 1px solid #ffa31a;
-    width: 80%;
-    max-width: 400px; /* Ограничение ширины */
-    color: white; /* Цвет текста */
-    border-radius: 10px; /* Закругленные углы */
-}
+    #address-form2 {
+        display: grid;
+        grid-template-columns: 1fr; /* Одноколоночный макет */
+        gap: 15px; /* Уменьшение расстояния между элементами */
+    }
 
-.close-btn {
-    color: #ffa31a; /* Цвет кнопки закрытия */
-    float: right; /* Позиционирование справа */
-    font-size: 24px; /* Размер шрифта */
-    font-weight: bold;
-    cursor: pointer; /* Указатель курсора при наведении */
-}
+    #address-form2 input, #address-form2 textarea {
+        padding: 8px; /* Уменьшение отступов */
+        margin-bottom: 15px; /* Уменьшение нижнего отступа */
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background-color: transparent;
+        font-size: 0.9em; /* Уменьшение размера шрифта */
+        height: 35px; /* Уменьшение высоты полей ввода */
+        box-shadow: none;
+        color: white;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+    }
 
-.close-btn:hover {
-    color: white; /* Изменение цвета при наведении */
-}
+    #address-form2 input:focus, #address-form2 textarea:focus {
+        outline: none;
+        border-bottom: 1px solid #ffa31a;
+    }
+
+    /* Поле "Улица" на всю ширину */
+    #street {
+        grid-column: 1 / -1; /* Растягиваем на всю ширину */
+        width: 100%;
+    }
+
+    /* Сетка 2x2 для остальных полей */
+    #matrix-container {
+        display: grid;
+        grid-template-columns: 1fr; /* Один столбец на малых экранах */
+        grid-gap: 15px; /* Уменьшение расстояния между колонками */
+    }
+
+    /* Комментарий на всю ширину */
+    #comment {
+        grid-column: 1 / -1; /* На всю ширину экрана */
+        width: 100%;
+    }
+
+    .item-card {
+        width: 100%; /* Полная ширина карточки */
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ffa31a;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        cursor: pointer; /* Указатель как рука при наведении */
+    }
+
+    .item-card:hover {
+        transform: translateY(-3px); /* Уменьшение эффекта наведения */
+        border: 4px solid #ffa31a; /* Цвет границы при наведении */
+        box-shadow: 0 0 10px rgba(255, 163, 26, 0.5); /* Эффект тени */
+    }
+
+    .view-order {
+        width: 100%; /* Полная ширина */
+        padding: 10px 0;
+    }
+
+    .view-order-button {
+        padding: 12px 25px; /* Уменьшение отступов кнопки */
+        font-size: 16px; /* Уменьшение размера шрифта */
+        width: 100%; /* Кнопка на всю ширину */
+    }
+
+    .order-summary {
+        padding: 10px; /* Уменьшение отступов */
+    }
+
+    .checkout-button {
+        width: 100%; /* Полная ширина */
+    }
 }
