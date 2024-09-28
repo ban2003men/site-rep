@@ -212,14 +212,19 @@
     });
 
     // Скрытие корзины при клике вне её области
-    window.addEventListener('click', function (event) {
-        const isClickInsideCart = orderSummaryElement.contains(event.target);
-        const isClickViewOrderButton = document.getElementById('view-order-button').contains(event.target);
+function handleClickOutside(event) {
+    const isClickInsideCart = orderSummaryElement.contains(event.target);
+    const isClickViewOrderButton = document.getElementById('view-order-button').contains(event.target);
 
-        if (!isClickInsideCart && !isClickViewOrderButton) {
-            orderSummaryElement.style.display = 'none';
-        }
-    });
+    if (!isClickInsideCart && !isClickViewOrderButton) {
+        orderSummaryElement.style.display = 'none';
+    }
+}
+
+// Добавляем обработчики событий для клика и касания
+window.addEventListener('click', handleClickOutside);
+window.addEventListener('touchstart', handleClickOutside);
+
 
     
 });
