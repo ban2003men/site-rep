@@ -197,7 +197,10 @@ document.getElementById('close-address-modal2').addEventListener('click', functi
         // Получаем остальные данные
         const intercom = document.getElementById('intercom').value.trim();
         const comment = document.getElementById('comment').value.trim();
-
+// Проверяем, был ли клик вне формы
+            if (!form.contains(event.target) && !addressModal.contains(event.target)) {
+                document.activeElement.blur(); // Убирает фокус с активного поля ввода
+            }
         // Формируем адрес для вывода
         const deliveryAddress = `Улица: ${street}, Подъезд: ${entrance}, Этаж: ${floor}, Квартира: ${apartment}, Домофон: ${intercom}, Комментарий: ${comment}`;
 
