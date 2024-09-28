@@ -807,16 +807,16 @@ h1 {
     }
     
     .item-card {
-        width: 45%;
-        margin-bottom: 15px;
+        width: 48%;
+        margin-bottom: 10px;
     }
     
     .item-card h3 {
-        font-size: 1.1em;
+        font-size: 1em;
     }
     
     .item-card p {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
     
     .header-right p {
@@ -825,26 +825,30 @@ h1 {
     
     .header-left a {
         /* font-size:1.5em; */
+        padding:5px;
     }
     
     .logo {
-        height: 5em;
-        width: 11em;
+        height: 40px;
+        width: 8em;
     }
     
     .icon profile-icon {
         width: 4em;
         height: 4em;
     }
+    .category-menu ul {
+        flex-direction: row; /* Сохраняем горизонтальное меню */
+        overflow-x: auto; /* Добавление горизонтальной прокрутки при необходимости */
+    }
+
+    .category-menu ul li {
+        margin: 0 5px; /* Уменьшение отступов между пунктами меню */
+    }
     
     .category-menu ul li a {
-        color: #808080;
-        text-decoration: none;
-        padding: 5px 10px;
-        font-size: 20px;
-        border-radius: 4px;
-        text-align: center;
-        display: block;
+      font-size: 14px; /* Уменьшение размера текста */
+        padding: 8px 5px; /* Уменьшение внутреннего отступа */
     }
     .section:hover {
     background-color: #ffa31a; /* Цвет фона при наведении */
