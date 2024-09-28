@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none; /* Для современных браузеров */
+    -webkit-user-select: none; /* Для Safari */
+    -moz-user-select: none; /* Для Firefox */
+    -ms-user-select: none; /* Для Internet Explorer/Edge */
 }
 
 body {
@@ -209,6 +213,9 @@ h1 {
     cursor: pointer;
     border-radius: 5px;
     font-size: 18px;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    font-weight: bold;
 }
 
 .view-order-button:hover {
@@ -350,32 +357,206 @@ h1 {
     font-size: 16px;
     color: #ffffff;
 }
+/*адресс*/
+/* Стиль для модального окна */
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content2 {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.close-btn2 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn2:hover,
+.close-btn2:focus {
+    color: black;
+}
+
+#address-form2 input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#address-form2 button {
+    padding: 10px 20px;
+    background-color: #ffa31a;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+#address-form2 button:hover {
+    background-color: #ff8c00;
+}
+
 
 /* Медиазапрос для мобильных устройств */
+
+
 @media (max-width: 768px) {
+    .close-error-modal {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+    .close-error-modal:hover,
+.close-error-modal:focus {
+    color: white;
+    cursor: pointer;
+}
+    /* Стиль для модального окна */
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content2 {
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+   font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+}
+
+
+
+
+
+
+#address-form2 button {
+    padding: 10px 20px;
+    background-color: #ffa31a;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size:1em;
+}
+
+#address-form2 {
+    display: grid;
+    grid-template-columns: 1fr; /* Одноколоночный макет для начальной части */
+    gap: 20px; /* Расстояние между элементами */
+}
+
+#address-form2 input, #address-form2 textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    font-size: 1em;
+    height: 40px;
+    box-shadow: none;
+    color:white;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+#address-form2 input:focus, #address-form2 textarea:focus {
+    outline: none;
+    border-bottom: 1px solid #ffa31a;
+}
+
+/* Поле "Улица" на всю ширину */
+#street {
+    grid-column: 1 / -1; /* Растягиваем на всю ширину */
+    width: 100%;
+}
+
+/* Сетка 2x2 для остальных полей */
+#matrix-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки */
+    grid-gap: 20px; /* Расстояние между колонками */
+}
+
+/* Комментарий на всю ширину */
+#comment {
+    grid-column: 1 / -1; /* На всю ширину экрана */
+    width: 100%;
+}
+
+
+
+
+
   .item-controls {
+    background-color: #ffa31a; /* The entire bottom section is red */
+    height: 40px; /* Adjust this height as needed */
     position: absolute;
-    bottom: 10px; /* Позиционирование внизу карточки */
-    left: 10px; /* Слева */
-    width: 100%; /* Дополнительно */
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .decrease-qty {
-    background-color: #ff3333;
-    color: #fff;
+    background-color: #ffa31a;
+    color: white;
     border: none;
-    border-radius: 12px;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    font-size: 1.1em;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
 
-.decrease-qty:hover {
-    background-color: #ff6666;
 }
+.INFO{
+    text-align: center;
+    height: 90px;
+}
+.INFO p{
+/*    text-align: center;*/
+    font-size: 1.3em;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+.INFO h3{
+font-size: 1.3em;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+/*.decrease-qty:hover {
+    background-color: #ff6666;
+}*/
 
 
 
@@ -413,6 +594,7 @@ h1 {
     width: 22%;
     margin-bottom: 20px;
     padding: 10px;
+    overflow: hidden;
     text-align: center;
     cursor: pointer; /* Указатель как рука при наведении */
 }
@@ -446,6 +628,9 @@ h1 {
     cursor: pointer;
     border-radius: 5px;
     font-size: 18px;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    font-weight: bold;
 }
 
 .view-order-button:hover {
@@ -463,6 +648,7 @@ h1 {
     border-top: 2px solid #ffa31a;
     padding: 20px;
     color: white;
+    font-weight: bold;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
     z-index: 1000; /* Поверх всех элементов */
 }
@@ -540,7 +726,7 @@ h1 {
         margin-bottom: 15px;
     }
     
-    .item-card h3 {
+    /*.item-card h3 {
         font-size: 1.1em;
     }
     
@@ -553,9 +739,9 @@ h1 {
     }
     
     .header-left a {
-        /* font-size:1.5em; */
+        /* font-size:1.5em; 
     }
-    
+    */
     .logo {
         height: 5em;
         width: 11em;
@@ -624,29 +810,143 @@ h1 {
 }
 /* Медиа-запрос для экранов до 480px */
 @media (max-width: 480px) {
-   .item-controls {
+        .close-error-modal {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+    .close-error-modal:hover,
+.close-error-modal:focus {
+    color: white;
+    cursor: pointer;
+}
+    /* Стиль для модального окна */
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content2 {
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+   font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+}
+
+
+
+
+
+
+#address-form2 button {
+    padding: 10px 20px;
+    background-color: #ffa31a;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size:1em;
+}
+
+#address-form2 {
+    display: grid;
+    grid-template-columns: 1fr; /* Одноколоночный макет для начальной части */
+    gap: 20px; /* Расстояние между элементами */
+}
+
+#address-form2 input, #address-form2 textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    font-size: 1em;
+    height: 40px;
+    box-shadow: none;
+    color:white;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+#address-form2 input:focus, #address-form2 textarea:focus {
+    outline: none;
+    border-bottom: 1px solid #ffa31a;
+}
+
+/* Поле "Улица" на всю ширину */
+#street {
+    grid-column: 1 / -1; /* Растягиваем на всю ширину */
+    width: 100%;
+}
+
+/* Сетка 2x2 для остальных полей */
+#matrix-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки */
+    grid-gap: 20px; /* Расстояние между колонками */
+}
+
+/* Комментарий на всю ширину */
+#comment {
+    grid-column: 1 / -1; /* На всю ширину экрана */
+    width: 100%;
+}
+
+
+
+
+
+  .item-controls {
+    background-color: #ffa31a; /* The entire bottom section is red */
+    height: 40px; /* Adjust this height as needed */
     position: absolute;
-    bottom: 10px; /* Позиционирование внизу карточки */
-    left: 10px; /* Слева */
-    width: 100%; /* Дополнительно */
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .decrease-qty {
-    background-color: #ff3333;
-    color: #fff;
+    background-color: #ffa31a;
+    color: white;
     border: none;
-    border-radius: 12px;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    font-size: 1.1em;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
 
-.decrease-qty:hover {
-    background-color: #ff6666;
 }
+.INFO{
+    text-align: center;
+    height: 90px;
+}
+.INFO p{
+/*    text-align: center;*/
+    font-size: 1.3em;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+.INFO h3{
+font-size: 1.3em;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+/*.decrease-qty:hover {
+    background-color: #ff6666;
+}*/
 
 
 
@@ -684,6 +984,7 @@ h1 {
     width: 22%;
     margin-bottom: 20px;
     padding: 10px;
+    overflow: hidden;
     text-align: center;
     cursor: pointer; /* Указатель как рука при наведении */
 }
@@ -717,6 +1018,9 @@ h1 {
     cursor: pointer;
     border-radius: 5px;
     font-size: 18px;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    font-weight: bold;
 }
 
 .view-order-button:hover {
@@ -734,6 +1038,7 @@ h1 {
     border-top: 2px solid #ffa31a;
     padding: 20px;
     color: white;
+    font-weight: bold;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
     z-index: 1000; /* Поверх всех элементов */
 }
@@ -807,16 +1112,16 @@ h1 {
     }
     
     .item-card {
-        width: 48%;
-        margin-bottom: 10px;
+        width: 45%;
+        margin-bottom: 15px;
     }
     
-    .item-card h3 {
-        font-size: 1em;
+    /*.item-card h3 {
+        font-size: 1.1em;
     }
     
     .item-card p {
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
     
     .header-right p {
@@ -824,31 +1129,27 @@ h1 {
     }
     
     .header-left a {
-        /* font-size:1.5em; */
-        padding:5px;
+        /* font-size:1.5em; 
     }
-    
+    */
     .logo {
-        height: 40px;
-        width: 8em;
+        height: 5em;
+        width: 11em;
     }
     
     .icon profile-icon {
         width: 4em;
         height: 4em;
     }
-    .category-menu ul {
-        flex-direction: row; /* Сохраняем горизонтальное меню */
-        overflow-x: auto; /* Добавление горизонтальной прокрутки при необходимости */
-    }
-
-    .category-menu ul li {
-        margin: 0 5px; /* Уменьшение отступов между пунктами меню */
-    }
     
     .category-menu ul li a {
-      font-size: 14px; /* Уменьшение размера текста */
-        padding: 8px 5px; /* Уменьшение внутреннего отступа */
+        color: #808080;
+        text-decoration: none;
+        padding: 5px 10px;
+        font-size: 20px;
+        border-radius: 4px;
+        text-align: center;
+        display: block;
     }
     .section:hover {
     background-color: #ffa31a; /* Цвет фона при наведении */
