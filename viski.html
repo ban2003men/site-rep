@@ -23,11 +23,6 @@
         </div>
     </header>
 
-
-
-
-
-
     <!-- Карточка профиля -->
     <div id="profile-modal" class="modal">
         <div class="modal-content">
@@ -38,8 +33,7 @@
         </div>
     </div>
 
-
-<!-- Горизонтальное меню под шапкой -->
+    <!-- Горизонтальное меню под шапкой -->
     <nav class="category-menu">
         <ul>
             <li><a href="index.html#strong">КРЕПКОЕ</a></li>
@@ -49,35 +43,27 @@
         </ul>
     </nav>
 
-
-<!-- Карточка товара  -->
-<div class="container">
-    <h1>Виски</h1>
-    <div class="items">
-        <div class="item-card">
-            <img src="111.svg" alt="Виски Бренд 1">
-            <h3>Виски Бренд 1</h3>
-            <p>Цена: 3000 ₽</p>
-            <div class="item-quantity-badge">0</div>
-            <div class="item-controls">
-                <button class="decrease-qty" style="display: none;">-</button> <!-- Скрыто по умолчанию -->
+    <!-- Карточка товара  -->
+    <div class="container">
+        <h1>Виски</h1>
+        <div class="items">
+            <div class="item-card">
+                <img src="111.svg" alt="Виски Бренд 1">
+                <h3>Виски Бренд 1</h3>
+                <p>Цена: 3000 ₽</p>
+                <div class="item-quantity-badge">0</div>
+                <div class="item-controls">
+                    <button class="decrease-qty" style="display: none;">-</button> <!-- Скрыто по умолчанию -->
+                </div>
             </div>
+            <!-- Добавьте остальные карточки аналогично -->
         </div>
-        <!-- Добавьте остальные карточки аналогично -->
     </div>
-</div>
 
-
-
-
-<!-- Кнопка View Order -->
+    <!-- Кнопка View Order -->
     <div class="view-order">
         <button id="view-order-button" class="view-order-button">View Order</button>
     </div>
-
-
-
-
 
     <!-- Корзина внизу -->
     <div id="order-summary" class="order-summary">
@@ -88,8 +74,6 @@
         </div>
         <button id="checkout-button" class="checkout-button">Оформить заказ</button>
     </div>
-
-
 
     <script>
         // Открытие модального окна при клике на иконку профиля
@@ -111,124 +95,119 @@
         });
     </script>
 
- 
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const cart = [];
+            const cartItemsElement = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const orderSummaryElement = document.getElementById('order-summary');
 
+            // Обновление содержимого корзины и бейджей количества
+            function updateCart() {
+                cartItemsElement.innerHTML = '';
+                let total = 0;
 
-    
-<script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-    const cart = [];
-    const cartItemsElement = document.getElementById('cart-items');
-    const cartTotalElement = document.getElementById('cart-total');
-    const orderSummaryElement = document.getElementById('order-summary');
+                cart.forEach((item) => {
+                    total += item.price * item.quantity;
 
-    // Обновление содержимого корзины и бейджей количества
-    function updateCart() {
-        cartItemsElement.innerHTML = '';
-        let total = 0;
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name} - ${item.price} ₽ x ${item.quantity}`;
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Удалить';
+                    removeButton.onclick = () => {
+                        cart.splice(cart.indexOf(item), 1);
+                        updateCart();
+                        updateBadge(item.name); // Обновить бейдж на карточке
+                    };
+                    li.appendChild(removeButton);
+                    cartItemsElement.appendChild(li);
+                });
 
-        cart.forEach((item) => {
-            total += item.price * item.quantity;
+                cartTotalElement.textContent = `${total} ₽`;
+            }
 
-            const li = document.createElement('li');
-            li.textContent = `${item.name} - ${item.price} ₽ x ${item.quantity}`;
-            const removeButton = document.createElement('button');
-            removeButton.textContent = 'Удалить';
-            removeButton.onclick = () => {
-                cart.splice(cart.indexOf(item), 1);
-                updateCart();
-                updateBadge(item.name); // Обновить бейдж на карточке
-            };
-            li.appendChild(removeButton);
-            cartItemsElement.appendChild(li);
-        });
+            // Обновление бейджа количества на карточке
+            function updateBadge(itemName) {
+                const itemCards = document.querySelectorAll('.item-card');
+                itemCards.forEach(card => {
+                    if (card.querySelector('h3').textContent === itemName) {
+                        const badge = card.querySelector('.item-quantity-badge');
+                        const cartItem = cart.find(item => item.name === itemName);
+                        const quantity = cartItem ? cartItem.quantity : 0; // Получаем количество из корзины
 
-        cartTotalElement.textContent = `${total} ₽`;
-    }
+                        if (quantity > 0) {
+                            badge.textContent = quantity;
+                            badge.style.display = 'flex'; // Показываем бейдж
+                        } else {
+                            badge.style.display = 'none'; // Скрываем бейдж
+                        }
 
-    // Обновление бейджа количества на карточке
-    function updateBadge(itemName) {
-        const itemCards = document.querySelectorAll('.item-card');
-        itemCards.forEach(card => {
-            if (card.querySelector('h3').textContent === itemName) {
-                const badge = card.querySelector('.item-quantity-badge');
+                        // Убедимся, что кнопка уменьшения также обновляется
+                        const decreaseButton = card.querySelector('.decrease-qty');
+                        decreaseButton.style.display = quantity > 0 ? 'flex' : 'none'; // Показываем или скрываем кнопку
+                    }
+                });
+            }
+
+            // Уменьшение количества товара
+            function decreaseQuantity(itemName) {
                 const cartItem = cart.find(item => item.name === itemName);
-                const quantity = cartItem ? cartItem.quantity : 0; // Получаем количество из корзины
-
-                if (quantity > 0) {
-                    badge.textContent = quantity;
-                    badge.style.display = 'flex'; // Показываем бейдж
-                } else {
-                    badge.style.display = 'none'; // Скрываем бейдж
+                if (cartItem) {
+                    if (cartItem.quantity > 1) {
+                        cartItem.quantity -= 1;
+                    } else {
+                        cart.splice(cart.indexOf(cartItem), 1); // Удаляем товар, если количество равно 0
+                    }
+                    updateCart();
+                    updateBadge(itemName); // Обновляем бейдж
                 }
-
-                // Убедимся, что кнопка уменьшения также обновляется
-                const decreaseButton = card.querySelector('.decrease-qty');
-                decreaseButton.style.display = quantity > 0 ? 'flex' : 'none'; // Показываем или скрываем кнопку
-            }
-        });
-    }
-
-    // Уменьшение количества товара
-    function decreaseQuantity(itemName) {
-        const cartItem = cart.find(item => item.name === itemName);
-        if (cartItem) {
-            if (cartItem.quantity > 1) {
-                cartItem.quantity -= 1;
-            } else {
-                cart.splice(cart.indexOf(cartItem), 1); // Удаляем товар, если количество равно 0
-            }
-            updateCart();
-            updateBadge(itemName); // Обновляем бейдж
-        }
-    }
-    // Добавление товара в корзину при клике на карточку
-    document.querySelectorAll('.item-card').forEach(card => {
-        card.addEventListener('click', function () {
-            const itemName = card.querySelector('h3').textContent;
-            const itemPrice = parseInt(card.querySelector('p').textContent.replace('Цена: ', '').replace(' ₽', ''));
-
-            const cartItem = cart.find(item => item.name === itemName);
-            if (cartItem) {
-                cartItem.quantity += 1;
-            } else {
-                cart.push({ name: itemName, price: itemPrice, quantity: 1 });
             }
 
-            updateCart();
-            updateBadge(itemName, cart.find(item => item.name === itemName).quantity);
+            // Добавление товара в корзину при клике на карточку
+            document.querySelectorAll('.item-card').forEach(card => {
+                card.addEventListener('click', function () {
+                    const itemName = card.querySelector('h3').textContent;
+                    const itemPrice = parseInt(card.querySelector('p').textContent.replace('Цена: ', '').replace(' ₽', ''));
+
+                    const cartItem = cart.find(item => item.name === itemName);
+                    if (cartItem) {
+                        cartItem.quantity += 1;
+                    } else {
+                        cart.push({ name: itemName, price: itemPrice, quantity: 1 });
+                    }
+
+                    updateCart();
+                    updateBadge(itemName);
+                });
+
+                card.querySelector('.decrease-qty').addEventListener('click', function (event) {
+                    event.stopPropagation(); // Остановить событие клика на карточке
+                    const itemName = card.querySelector('h3').textContent;
+                    decreaseQuantity(itemName);
+                });
+            });
+
+            // Показ/скрытие корзины при нажатии кнопки View Order
+            document.getElementById('view-order-button').addEventListener('click', function () {
+                orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
+            });
+
+            // Скрытие корзины при клике вне её области
+            window.addEventListener('click', function (event) {
+                const isClickInsideCart = orderSummaryElement.contains(event.target);
+                const isClickViewOrderButton = document.getElementById('view-order-button').contains(event.target);
+                
+                // Проверка, что клик произошёл вне всех карточек
+                const isClickInsideItemCards = Array.from(document.querySelectorAll('.item-card')).some(card => card.contains(event.target));
+
+                if (!isClickInsideCart && !isClickViewOrderButton && !isClickInsideItemCards) {
+                    orderSummaryElement.style.display = 'none';
+                }
+            });
+
         });
-         
-        card.querySelector('.decrease-qty').addEventListener('click', function (event) {
-            event.stopPropagation(); // Остановить событие клика на карточке
-            const itemName = card.querySelector('h3').textContent;
-            decreaseQuantity(itemName);
-        });
-    });
-
-    // Показ/скрытие корзины при нажатии кнопки View Order
-    document.getElementById('view-order-button').addEventListener('click', function () {
-        orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
-    });
-
-    // Скрытие корзины при клике вне её области
-function handleClickOutside(event) {
-    const isClickInsideCart = orderSummaryElement.contains(event.target);
-    const isClickViewOrderButton = document.getElementById('view-order-button').contains(event.target);
-
-    if (!isClickInsideCart && !isClickViewOrderButton) {
-        orderSummaryElement.style.display = 'none';
-    }
-}
-
-// Добавляем обработчики событий для клика и касания
-window.addEventListener('click', handleClickOutside);
-window.addEventListener('touchstart', handleClickOutside);
-
-
+    </script>
     
-});
-</script>
     <footer>
         <!-- <p>© 2024 Все права защищены.</p> -->
     </footer>
