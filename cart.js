@@ -194,7 +194,18 @@ window.addEventListener('click', function (event) {
     //     }
        
     // });
+    // Скрытие корзины при клике вне её области
+            window.addEventListener('click', function (event) {
+                const isClickInsideCart = orderSummaryElement.contains(event.target);
+                const isClickViewOrderButton = document.getElementById('view-order-button').contains(event.target);
+                
+                // Проверка, что клик произошёл вне всех карточек
+                const isClickInsideItemCards = Array.from(document.querySelectorAll('.item-card')).some(card => card.contains(event.target));
 
+                if (!isClickInsideCart && !isClickViewOrderButton && !isClickInsideItemCards) {
+                    orderSummaryElement.style.display = 'none';
+                }
+            });
     updateCart();
     updateBadgeOnLoad();
 
