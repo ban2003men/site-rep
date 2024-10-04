@@ -158,7 +158,16 @@ document.addEventListener('DOMContentLoaded', function () {
             decreaseQuantity(itemName);
         });
     });
+window.addEventListener('click', function (event) {
+        if (window.innerWidth <= 480) {  // Проверка на ширину экрана
+            const isClickInsideCart = orderSummaryElement.contains(event.target);
+            const isClickViewOrderButton = viewOrderButton.contains(event.target);
 
+            if (!isClickInsideCart && !isClickViewOrderButton) {
+                hideCart();
+            }
+        }
+    });
     // document.getElementById('view-order-button').addEventListener('click', function () {
     //     orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
     // });
