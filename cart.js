@@ -174,9 +174,9 @@ function hideCart() {
     orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
 
 });
-    viewOrderButton.addEventListener('click', function () {
-        orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
-    });
+    // viewOrderButton.addEventListener('click', function () {
+    //     orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
+    // });
     function handleOutsideClick(event) {
         const isClickInsideCart = orderSummaryElement.contains(event.target);
         const isClickViewOrderButton = viewOrderButton.contains(event.target);
