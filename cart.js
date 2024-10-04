@@ -67,6 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const orderSummaryElement = document.getElementById('order-summary');
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+     viewOrderButton.addEventListener('click', function () {
+        orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
+    });
+
     // Обработчик клика вне корзины для экранов до 480px
     window.addEventListener('click', function (event) {
         if (window.innerWidth <= 480) {  // Проверяем ширину экрана
