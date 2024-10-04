@@ -14,6 +14,29 @@ let btn4 = document.getElementById("btn4");
 let btn5 = document.getElementById("btn5");
 let btn6 = document.getElementById("btn6");
 
+let cartItemsElement = document.getElementById('cart-items');
+
+// Функция для очистки корзины
+function clearCart() {
+    localStorage.removeItem('cart'); // Удаляем данные корзины из localStorage
+    cartItemsElement.innerHTML = ''; // Очищаем отображаемую корзину
+    tg.MainButton.hide(); // Скрываем основную кнопку
+    console.log("Корзина очищена");
+}
+
+// Обработчик события закрытия приложения
+Telegram.WebApp.onEvent("close", function() {
+    clearCart(); // Очищаем корзину при закрытии приложения
+});
+
+// Подписываемся на событие закрытия приложения
+window.addEventListener('beforeunload', function() {
+    clearCart(); // Очищаем корзину при закрытии вкладки браузера или приложения
+});
+
+
+
+
 btn1.addEventListener("click", function(){
 	if (tg.MainButton.isVisible) {
 		tg.MainButton.hide();
