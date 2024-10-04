@@ -1,0 +1,57 @@
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #444;
+        }
+        .profile-header h1 {
+            color: #ffcc33;
+        }
+        .loyalty-status {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .loyalty-status h2 {
+            color: #ffcc33;
+        }
+        .privileges-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .privileges-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #555;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #444;
+        }
+        .offers {
+            margin: 20px 0;
+        }
+        .offer-item {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }

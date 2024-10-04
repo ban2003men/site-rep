@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viski</title>
+    <!-- Подключаем CSS файл -->
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <script src="cart.js" defer></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="dropdown">
+            <a href="#" class="icon profile-icon" id="profile-icon">
+                <svg fill="none" width="2em" height="2em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="m22 12c0 5.5228-4.4772 10-10 10-5.52285 0-10-4.4772-10-10 0-5.52285 4.47715-10 10-10 5.5228 0 10 4.47715 10 10zm-4.2863 4.4006c.3279.3345.3279.8644-.0001 1.199-1.4519 1.4813-3.4754 2.4004-5.7135 2.4004-2.23824 0-4.26176-.9191-5.71374-2.4006-.32791-.3345-.3279-.8644.00001-1.199 1.45197-1.4813 3.47544-2.4004 5.71363-2.4004 2.2382 0 4.2617.9192 5.7137 2.4006zm-5.7137-4.4006c1.6569 0 3-1.3431 3-3 0-1.65685-1.3431-3-3-3s-3 1.34315-3 3c0 1.6569 1.3431 3 3 3z" fill="#808080" fill-rule="evenodd" style="fill: #808080;"></path>
+                </svg>
+            </a>
+            <!-- Выпадающее меню -->
+                <div class="dropdown-content" id="dropdown-menu">
+                    <!-- <p class='balans'>5000 p</p> -->
+                    <a href="#">Профиль</a>
+                    <a href="orders.html">Мои заказы</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="header-center">
+            <a href="index.html"><img src="7.png" alt="Perk'i Logo" class="logo"></a>
+
+        </div>
+        <div class="header-right">
+            <p style="color:#ffa31a">18:00-23:00</p>
+        </div>
+</header>
+
+
+    <!-- Горизонтальное меню под шапкой -->
+    <nav class="category-menu">
+        <ul>
+            <li><a href="index.html#strong">КРЕПКОЕ</a></li>
+            <li><a href="index.html#wine">ВИНО</a></li>
+            <li><a href="index.html#sparkling">ИГРИСТОЕ</a></li>
+            <li><a href="index.html#liqueurs">НАСТОЙКИ</a></li>
+        </ul>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Карточка товара  -->
+    <div class="container">
+        <h1>Виски</h1>
+        <div class="items">
+            <div class="item-card">
+                <img src="111.svg" alt="Виски Бренд 1">
+                <div class="INFO">
+                <h3>Jack Daniels</h3>
+                <p>3000 ₽</p>
+                </div>
+                <div class="item-quantity-badge">0</div>
+                <div class="item-controls" style="display: none;">
+                    <button class="decrease-qty" >убрать</button> <!-- Скрыто по умолчанию -->
+                </div>
+            </div>
+            <!-- Добавьте остальные карточки аналогично -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="app.js"></script>
+
+
+
+
+
+
+
+    <!-- Кнопка View Order -->
+    <div class="view-order">
+        <button id="view-order-button" class="view-order-button">Корзина</button>
+    </div>
+
+    <!-- Корзина внизу -->
+    <div id="order-summary" class="order-summary">
+        <h2>Корзина</h2>
+        <ul id="cart-items"></ul>
+        <div class="cart-total">
+            <span>Итого: </span><span id="cart-total">0 ₽</span>
+        </div>
+        <button id="checkout-button" class="checkout-button">Оформить заказ</button>
+    </div>
+
+
+
+<!-- Модальное окно уведомления об ошибке -->
+<div id="error-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-error-modal">&times;</span>
+        <h2>Ошибка</h2>
+        <p id="error-message">Пожалуйста, заполните все обязательные поля.</p>
+    </div>
+</div>
+
+<div id="thank-you-message" style="display: none; background-color: #28a745; color: white; padding: 15px; position: fixed; top: 20px; right: 20px; border-radius: 5px;">
+    Спасибо за покупку!
+</div>
+
+
+
+
+<!-- Модальное окно для ввода адреса -->
+<div id="address-modal2" class="modal2">
+    <div class="modal-content2">
+        <span class="close-btn2" id="close-address-modal2">&times;</span>
+        <h2>Укажите адрес доставки</h2>
+        <form id="address-form2">
+    <!-- Поле Улица -->
+    <input type="text" id="street" name="street" placeholder="Улица">
+
+    <!-- Сетка 2x2 для подъезда, квартиры, этажа и домофона -->
+    <div id="matrix-container">
+        <input type="text" id="entrance" name="entrance" placeholder="Подъезд">
+        <input type="text" id="apartment" name="apartment" placeholder="Квартира">
+        <input type="text" id="floor" name="floor" placeholder="Этаж">
+        <input type="text" id="intercom" name="intercom" placeholder="Домофон">
+    </div>
+
+    <!-- Поле Комментарий на всю ширину -->
+    <textarea id="comment" name="comment" rows="4" placeholder="Комментарий"></textarea>
+<button type="submit2">Подтвердить</button>
+</form>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

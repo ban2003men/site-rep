@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя - Perk'i</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    
+<script type="app.js"></script>
+<!-- ШАПКА -->
+    <header class="header">
+        <div class="header-left">
+            <div class="dropdown">
+            <a href="#" class="icon profile-icon" id="profile-icon">
+                <svg fill="none" width="2em" height="2em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="m22 12c0 5.5228-4.4772 10-10 10-5.52285 0-10-4.4772-10-10 0-5.52285 4.47715-10 10-10 5.5228 0 10 4.47715 10 10zm-4.2863 4.4006c.3279.3345.3279.8644-.0001 1.199-1.4519 1.4813-3.4754 2.4004-5.7135 2.4004-2.23824 0-4.26176-.9191-5.71374-2.4006-.32791-.3345-.3279-.8644.00001-1.199 1.45197-1.4813 3.47544-2.4004 5.71363-2.4004 2.2382 0 4.2617.9192 5.7137 2.4006zm-5.7137-4.4006c1.6569 0 3-1.3431 3-3 0-1.65685-1.3431-3-3-3s-3 1.34315-3 3c0 1.6569 1.3431 3 3 3z" fill="#808080" fill-rule="evenodd" style="fill: #808080;"></path>
+                </svg>
+            </a>
+            <!-- Выпадающее меню -->
+                <div class="dropdown-content" id="dropdown-menu">
+                    <!-- <p class='balans'>5000 p</p> -->
+                    <a href="profil.html">Профиль</a>
+                    <a href="orders.html">Мои заказы</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="header-center">
+           <!--  <a href="#"><img src="{{ img.image.url }}" alt="{{ img.title }}"></a>
+            <a href="#"><img src="{% static 'img/7.png' %}" alt="Описание изображения"></a> -->
+            <a href="index.html"><img src="7.png" alt="Perk'i Logo" class="logo"></a>
+
+        </div>
+        <div class="header-right">
+            <p style="color:#ffa31a">18:00-23:00</p>
+        </div>
+</header>
+<div class="container">
+    <!-- Профиль -->
+    <div class="profile-header">
+        <h1>Профиль пользователя</h1>
+        <div>
+            <p>Имя пользователя: Иван Иванов</p>
+            <p>Уровень программы лояльности: <strong>Золотой</strong></p>
+            <p>Баллы на счету: 4500</p>
+            <p>Дата регистрации: 12.05.2023</p>
+        </div>
+    </div>
+
+    <!-- Программа лояльности -->
+    <div class="loyalty-status">
+        <h2>Программа лояльности</h2>
+        <p>Вы участник программы лояльности <strong>"Perk'i"</strong> с уровнем <strong>Золотой</strong>. Чем выше уровень, тем больше скидок и бонусов вы получаете.</p>
+        
+        <h3>Ваши привилегии:</h3>
+        <ul class="privileges-list">
+            <li>Скидка 10% на все заказы.</li>
+            <li>Доставка на 30 минут быстрее.</li>
+            <li>Эксклюзивный доступ к новым продуктам.</li>
+            <li>Подарочный купон на 500 ₽ каждый месяц.</li>
+        </ul>
+    </div>
+
+    <!-- История накопления баллов -->
+    <h2>История накопления баллов</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Описание</th>
+                <th>Баллы</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01.10.2024</td>
+                <td>Покупка виски</td>
+                <td>+1000</td>
+            </tr>
+            <tr>
+                <td>15.09.2024</td>
+                <td>Покупка вина</td>
+                <td>+1500</td>
+            </tr>
+            <tr>
+                <td>20.08.2024</td>
+                <td>Использование купона</td>
+                <td>-500</td>
+            </tr>
+            <tr>
+                <td>10.08.2024</td>
+                <td>Покупка электроники</td>
+                <td>+2000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Доступные предложения -->
+    <div class="offers">
+        <h2>Доступные предложения</h2>
+        <div class="offer-item">
+            <p><strong>Скидка 15%</strong> на первый заказ в октябре.</p>
+        </div>
+        <div class="offer-item">
+            <p><strong>Бесплатная доставка</strong> при заказе на сумму от 3000 ₽.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
