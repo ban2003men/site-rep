@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const cartItemsElement = document.getElementById('cart-items');
     const cartTotalElement = document.getElementById('cart-total');
     const orderSummaryElement = document.getElementById('order-summary');
+    const viewOrderButton = document.getElementById('view-order-button');
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     // Функция для показа корзины
