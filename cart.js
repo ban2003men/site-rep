@@ -185,15 +185,15 @@ function hideCart() {
 });
 
 
-    window.addEventListener('click', function (event) {
-        const isClickInsideCart = orderSummaryElement.contains(event.target);
-        const isClickViewOrderButton = document.getElementById('view-order-button').contains(event.target);
+    // window.addEventListener('click', function (event) {
+    //     const isClickInsideCart = orderSummaryElement.contains(event.target);
+    //     const isClickViewOrderButton = document.getElementById('view-order-button').contains(event.target);
 
-        if (!isClickInsideCart && !isClickViewOrderButton) {
-            orderSummaryElement.style.display = 'none';
-        }
+    //     if (!isClickInsideCart && !isClickViewOrderButton) {
+    //         orderSummaryElement.style.display = 'none';
+    //     }
        
-    });
+    // });
 
     updateCart();
     updateBadgeOnLoad();
