@@ -174,16 +174,32 @@ function hideCart() {
     orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
 
 });
-window.addEventListener('click', function (event) {
-        if (window.innerWidth <= 480) {  // Проверка на ширину экрана
-            const isClickInsideCart = orderSummaryElement.contains(event.target);
-            const isClickViewOrderButton = viewOrderButton.contains(event.target);
-
-            if (!isClickInsideCart && !isClickViewOrderButton) {
-                hideCart();
-            }
-        }
+    viewOrderButton.addEventListener('click', function () {
+        orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
     });
+    function handleOutsideClick(event) {
+        const isClickInsideCart = orderSummaryElement.contains(event.target);
+        const isClickViewOrderButton = viewOrderButton.contains(event.target);
+        
+        // Проверка, что клик произошёл вне карточек товаров
+        const isClickInsideItemCards = Array.from(document.querySelectorAll('.item-card')).some(card => card.contains(event.target));
+
+        if (!isClickInsideCart && !isClickViewOrderButton && !isClickInsideItemCards) {
+            hideCart();
+        }
+    }
+    window.addEventListener('click', handleOutsideClick);
+    window.addEventListener('touchstart', handleOutsideClick);
+// window.addEventListener('click', function (event) {
+//         if (window.innerWidth <= 480) {  // Проверка на ширину экрана
+//             const isClickInsideCart = orderSummaryElement.contains(event.target);
+//             const isClickViewOrderButton = viewOrderButton.contains(event.target);
+
+//             if (!isClickInsideCart && !isClickViewOrderButton) {
+//                 hideCart();
+//             }
+//         }
+//     });
 
     // window.addEventListener('click', function (event) {
     //     const isClickInsideCart = orderSummaryElement.contains(event.target);
