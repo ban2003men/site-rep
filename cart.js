@@ -67,7 +67,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const orderSummaryElement = document.getElementById('order-summary');
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Обработчик клика вне корзины для экранов до 480px
+    window.addEventListener('click', function (event) {
+        if (window.innerWidth <= 480) {  // Проверяем ширину экрана
+            const isClickInsideCart = orderSummaryElement.contains(event.target);  // Проверяем, что клик был внутри корзины
+            const isClickViewOrderButton = viewOrderButton.contains(event.target); // Проверяем, что клик был по кнопке "Просмотреть заказ"
 
+            if (!isClickInsideCart && !isClickViewOrderButton) {
+                hideCart();  // Если клик был вне корзины и не по кнопке - скрываем корзину
+            }
+        }
+    });
     function updateCart() {
         cartItemsElement.innerHTML = '';
         let total = 0;
