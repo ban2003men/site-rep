@@ -67,6 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const orderSummaryElement = document.getElementById('order-summary');
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Функция для показа корзины
+    function showCart() {
+        orderSummaryElement.style.display = 'block';
+    }
+
+    // Функция для скрытия корзины
+    function hideCart() {
+        orderSummaryElement.style.display = 'none';
+    }
      viewOrderButton.addEventListener('click', function () {
         orderSummaryElement.style.display = orderSummaryElement.style.display === 'none' || orderSummaryElement.style.display === '' ? 'block' : 'none';
     });
